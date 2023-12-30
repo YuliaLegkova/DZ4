@@ -12,10 +12,8 @@ namespace DZ_4_Class
             {
 
                 var s = new Stack("один", "два", "три", "четыре", "восемь", "сто");
-
                 Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
                 var deleted = s.Pop();
-
                 Console.WriteLine($"Извлек верхний элемент '{deleted}' Size = {s.Size}");
 
                 Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
@@ -30,8 +28,7 @@ namespace DZ_4_Class
                 s.Pop();
                 Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
                 s.Pop();
-
-                Console.WriteLine($"size = {s.Size}, Top = {(s.Top == null ? "null" : s.Top)}");
+                Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
                 s.Pop();
                 Console.WriteLine();
                 Console.WriteLine("________________");
@@ -40,10 +37,11 @@ namespace DZ_4_Class
             {
                 Console.WriteLine("Стек пустой");
             }
-           
+            Console.WriteLine();
+            Console.WriteLine("________________");
             var s1 = new Stack("один", "два", "три");
-                var s2 = new Stack("6", "5", "4");
-                s1.Merge(s2);
+            var s2 = new Stack("6", "5", "4");
+            s1.Merge(s2);
                 Console.WriteLine("в стеке s1 теперь элементы -");
                 while (s1.Size > 0)
                 {

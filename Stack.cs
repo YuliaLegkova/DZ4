@@ -45,7 +45,7 @@ public class Stack
         {
             if (Size == 0)
             {
-                return null;
+                return "null";
             }
             return elements[Size - 1];
         }
