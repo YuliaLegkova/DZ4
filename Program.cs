@@ -11,61 +11,55 @@ namespace DZ_4_Class
             try
             {
 
-                var s = new Stack("один", "два", "три", "четыре", "восемь", "сто");
-                Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
+                var s = new Stack("один", "два", "три");
+
+                s.GetContents("s");
+                
+                Console.WriteLine($"size = {s.Size}, Top = {(s.Top == null ? "null" : s.Top)}");
+
                 var deleted = s.Pop();
+
                 Console.WriteLine($"Извлек верхний элемент '{deleted}' Size = {s.Size}");
 
-                Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
-                s.Pop();
-                Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
-                s.Pop();
-                Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
-                s.Pop();
-                Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
-                s.Pop();
-                Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
-                s.Pop();
-                Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
-                s.Pop();
-                Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
-                s.Pop();
+                while (s.Size >= 0)
+                {
+                    Console.WriteLine($"size = {s.Size}, Top = {(s.Top == null ? "null" : s.Top)}");
+                    s.Pop();
+                }
+
                 Console.WriteLine();
-                Console.WriteLine("________________");
+
+                Console.WriteLine("--------------------");
             }
             catch (InvalidOperationException)
             {
                 Console.WriteLine("Стек пустой");
             }
-            Console.WriteLine();
-            Console.WriteLine("________________");
-            var s1 = new Stack("один", "два", "три");
-            var s2 = new Stack("6", "5", "4");
-            s1.Merge(s2);
-                Console.WriteLine("в стеке s1 теперь элементы -");
-                while (s1.Size > 0)
-                {
-                    string item = s1.Bop();
-                    Console.Write(item + "  ");
-                }
-                Console.WriteLine();
-                Console.WriteLine("________________");
 
-                var s3 = new Stack("a", "b", "c");
-                s3.Merge(new Stack("один", "два", "три"));
+            Console.WriteLine("--------------------");
 
-                Console.WriteLine("в стеке s3 теперь элементы -");
-                while (s3.Size > 0)
-                {
-                    string item = s3.Bop();
-                    Console.Write(item + "  ");
-                }
-                Console.WriteLine();
-                Console.WriteLine("________________");
+            Console.WriteLine("метод расширения Merge:");
+
+            var s1 = new Stack("a", "b", "c");
+
+            s1.GetContents("s1");
             
-            }
-            }
-         }
+            s1.Merge(new Stack("1", "2", "3"));
+            
+            s1.GetContents("s1");
+            
+            Console.WriteLine("--------------------");
+            
+            Console.WriteLine("метод Concat:");
+
+            var s5 = Stack.Concat(new Stack("a", "b", "c"), new Stack("1", "2", "3"), new Stack("А", "Б", "В"));
+
+            s5.GetContents("s");
+          
+            Console.WriteLine("--------------------");
+        }
+    }
+}
     
 
             

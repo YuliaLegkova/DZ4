@@ -45,21 +45,39 @@ public class Stack
         {
             if (Size == 0)
             {
-                return "null";
+                return null;
             }
             return elements[Size - 1];
         }
     }
-    public string Bop()
+
+    public static Stack Concat(params Stack[] stacks)
     {
+           Stack concatenatedStack = new Stack();
 
-        if (Size == 0)
+          foreach (Stack stack in stacks)
         {
-            throw new InvalidOperationException("Стек пустой");
+           while (stack.Size > 0)
+            {
+                concatenatedStack.Add(stack.Pop());
+            }
+          
+            
         }
-        string bottomElement = elements[0];
-        elements.RemoveAt(0);
-        return bottomElement;
 
+        return concatenatedStack;
+    }
+
+
+    public void GetContents(string stackName)
+    {
+        Console.WriteLine($"в стеке '{stackName}' теперь элементы -");
+        foreach (var element in elements)
+        {
+            Console.Write(element);
+            Console.Write($" ");
+        }
+        Console.WriteLine();
     }
 }
+ 
